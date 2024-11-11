@@ -1,8 +1,16 @@
 import Filter from "@/components/filter";
 import ProductList from "@/components/product-list";
+import { wixClientServer } from "@/lib/wixClientServer";
 import Image from "next/image";
 
-export default function List() {
+export default async function List({ searchParams }: { searchParams: any }) {
+  const { cat } = await searchParams;
+  // console.log(664333, params);
+  const wixClient = await wixClientServer();
+  const listPage = await wixClient.collections.getCollectionBySlug(
+    cat || "all-products"
+  );
+  console.log(1111, listPage);
   return (
     <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
       {/* CAMPAIGN */}
@@ -25,7 +33,12 @@ export default function List() {
       <Filter />
       {/* product list */}
       <h1 className="mt-12 text-xl font-semibold">Shoes for you!</h1>
-      <ProductList />
+      <ProductList
+        categoryId={
+          listPage.collection?._id || "00000000-000000-000000-000000000001"
+        }
+        searchParams={searchParams}
+      />
     </div>
   );
 }
