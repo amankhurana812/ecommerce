@@ -1,13 +1,13 @@
 // "use client";
 
-import CategoryList from "@/components/category-list";
-import Footer from "@/components/footer";
-import ProductList from "@/components/product-list";
-import Slider from "@/components/slider";
-import { WixClientContext } from "../context/wix-context";
-import { Suspense, useContext, useEffect } from "react";
-import { useWixClient } from "@/hooks/useWixClient";
-import { wixClientServer } from "@/lib/wixClientServer";
+import CategoryList from '@/components/category-list';
+import Footer from '@/components/footer';
+import ProductList from '@/components/product-list';
+import Slider from '@/components/slider';
+import { WixClientContext } from '../context/wix-context';
+import { Suspense, useContext, useEffect } from 'react';
+import { useWixClient } from '@/hooks/useWixClient';
+import { wixClientServer } from '@/lib/wixClientServer';
 
 export default async function Home() {
   // const wixContext = useContext(WixClientContext);
@@ -30,9 +30,9 @@ export default async function Home() {
   return (
     <div>
       <Slider />
-      <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+      <div className="relative mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
         <h1>Featured Products</h1>
-        <Suspense fallback={"loading..."}>
+        <Suspense fallback={'loading...'}>
           <ProductList
             categoryId={process.env.NEXT_PUBLIC_FEATURED_CATEGORY_ID!}
             limit={4}
@@ -40,16 +40,16 @@ export default async function Home() {
         </Suspense>
       </div>
       <div className="mt-24">
-        <h1 className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 mb-12">
+        <h1 className="mb-12 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
           Categories
         </h1>
         {/* CategoryList */}
-        <Suspense fallback={"Loading..."}>
+        <Suspense fallback={'Loading...'}>
           <CategoryList />
         </Suspense>
         {/* <ProductList /> */}
       </div>
-      <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+      <div className="relative mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
         <h1>New Products</h1>
         {/* <ProductList /> */}
       </div>

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 // import { redirect } from "next/navigation";
 
 const Search = () => {
@@ -11,7 +11,7 @@ const Search = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     console.log(113, formData);
-    const name = formData.get("name") as string;
+    const name = formData.get('name') as string;
     console.log(114, name);
     if (name) {
       //   redirect("/list");
@@ -20,7 +20,7 @@ const Search = () => {
   };
   return (
     <form
-      className="flex items-center justify-between gap-4 bg-gray-100 p-2 rounded-md flex-1"
+      className="flex flex-1 items-center justify-between gap-4 rounded-md bg-gray-100 p-2"
       onSubmit={handleSearch}
     >
       <input

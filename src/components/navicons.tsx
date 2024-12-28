@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 // import { redirect } from "next/navigation";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import CartModal from "./cartModal";
-import { useWixClient } from "@/hooks/useWixClient";
-import Cookies from "js-cookie";
-import { useCartStore } from "@/hooks/useCartStore";
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import CartModal from './cartModal';
+import { useWixClient } from '@/hooks/useWixClient';
+import Cookies from 'js-cookie';
+import { useCartStore } from '@/hooks/useCartStore';
 
 const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -32,7 +32,7 @@ const NavIcons = () => {
     console.log(1888);
     if (!isLoggedIn) {
       //   redirect("/login");
-      router.push("/login");
+      router.push('/login');
     } else {
       setIsProfileOpen((prev) => !prev);
     }
@@ -54,12 +54,12 @@ const NavIcons = () => {
   //   };
 
   console.log(244, isProfileOpen);
-  console.log(566, "pathName", pathName);
+  console.log(566, 'pathName', pathName);
   const handleLogout = async () => {
     setIsLoading(true);
-    Cookies.remove("refreshToken");
+    Cookies.remove('refreshToken');
     const { logoutUrl } = await wixClient.auth.logout(window.location.href);
-    console.log("logoutUrl", logoutUrl);
+    console.log('logoutUrl', logoutUrl);
     setIsLoading(false);
     setIsProfileOpen(false);
     router.push(logoutUrl);
@@ -72,7 +72,7 @@ const NavIcons = () => {
   }, [wixClient, getCart]);
 
   return (
-    <div className="flex items-center gap-4 xl:gap-6 relative">
+    <div className="relative flex items-center gap-4 xl:gap-6">
       <Image
         src="/profile.png"
         alt=""
@@ -83,10 +83,10 @@ const NavIcons = () => {
         onClick={handleProfile}
       />
       {isProfileOpen && (
-        <div className="absolute p-4 rounded-md top-8 left-0 text-sm  shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20 bg-white">
+        <div className="absolute left-0 top-8 z-20 rounded-md bg-white p-4 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
           <Link href="/profile">Profile</Link>
           <div className="mt-2 cursor-pointer" onClick={handleLogout}>
-            {isLoading ? "Logging out" : "Logout"}
+            {isLoading ? 'Logging out' : 'Logout'}
           </div>
         </div>
       )}
@@ -108,7 +108,7 @@ const NavIcons = () => {
           width={22}
           className="cursor-pointer"
         />
-        <div className="absolute -top-4 -right-4 w-6 h-6 bg-lama rounded-full text-white text-sm flex items-center justify-center">
+        <div className="absolute -right-4 -top-4 flex h-6 w-6 items-center justify-center rounded-full bg-lama text-sm text-white">
           {/* 2 */}
           {counter}
         </div>

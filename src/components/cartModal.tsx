@@ -1,12 +1,12 @@
 // "use client";
 
-import { useCartStore } from "@/hooks/useCartStore";
-import { useWixClient } from "@/hooks/useWixClient";
-import Image from "next/image";
-import { useEffect } from "react";
-import { media as wixMedia } from "@wix/sdk";
-import { currentCart } from "@wix/ecom";
-import { redirects } from "@wix/redirects";
+import { useCartStore } from '@/hooks/useCartStore';
+import { useWixClient } from '@/hooks/useWixClient';
+import Image from 'next/image';
+import { useEffect } from 'react';
+import { media as wixMedia } from '@wix/sdk';
+import { currentCart } from '@wix/ecom';
+import { redirects } from '@wix/redirects';
 
 const CartModal = () => {
   // TEMPARAY
@@ -54,7 +54,7 @@ const CartModal = () => {
   console.log(2666, cart);
 
   return (
-    <div className="w-max absolute p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white top-12 right-0 flex flex-col gap-6 z-20">
+    <div className="absolute right-0 top-12 z-20 flex w-max flex-col gap-6 rounded-md bg-white p-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
       {!cart.lineItems ? (
         <div className="">Cart is Empty</div>
       ) : (
@@ -71,16 +71,16 @@ const CartModal = () => {
                       item.image,
                       72,
                       96,
-                      {}
+                      {},
                     )}
                     //   src="https://images.pexels.com/photos/7521429/pexels-photo-7521429.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
                     alt=""
                     width={72}
                     height={96}
-                    className="object-cover rounded-md"
+                    className="rounded-md object-cover"
                   />
                 )}
-                <div className="flex flex-col justify-between w-full">
+                <div className="flex w-full flex-col justify-between">
                   {/* top */}
                   <div className="">
                     {/* title */}
@@ -88,10 +88,10 @@ const CartModal = () => {
                       <h3 className="font-semibold">
                         {item.productName?.original}
                       </h3>
-                      <div className="p-1 bg-gray-50 flex items-center rounded-sm gap-2">
+                      <div className="flex items-center gap-2 rounded-sm bg-gray-50 p-1">
                         {item.quantity && item.quantity > 1 && (
                           <div className="text-xs text-green-500">
-                            {item.quantity} x{" "}
+                            {item.quantity} x{' '}
                           </div>
                         )}
                         ${item.price?.amount}
@@ -108,7 +108,7 @@ const CartModal = () => {
                     <span className="text-gray-500">Qty. {item.quantity}</span>
                     <span
                       className="text-blue-500"
-                      style={{ cursor: isLoading ? "not-allowed" : "pointer" }}
+                      style={{ cursor: isLoading ? 'not-allowed' : 'pointer' }}
                       onClick={() => removeItem(wixClient, item._id!)}
                     >
                       Remove
@@ -125,15 +125,15 @@ const CartModal = () => {
               <span>Subtotal</span>
               <span>${cart?.subtotal?.amount}</span>
             </div>
-            <p className="text-gray-500 text-sm mt-2 mb-4">
+            <p className="mb-4 mt-2 text-sm text-gray-500">
               Shipping and texes calculated at checkout.
             </p>
             <div className="flex justify-between text-sm">
-              <button className="rounded-md py-3 px-4 ring-1 ring-gray-300">
+              <button className="rounded-md px-4 py-3 ring-1 ring-gray-300">
                 View Cart
               </button>
               <button
-                className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
+                className="rounded-md bg-black px-4 py-3 text-white disabled:cursor-not-allowed disabled:opacity-75"
                 disabled={isLoading}
                 onClick={handleCheckout}
               >

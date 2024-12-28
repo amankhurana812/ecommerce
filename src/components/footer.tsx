@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <div className="py-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-gray-100 text-sm mt-24">
+    <div className="mt-24 bg-gray-100 px-4 py-24 text-sm md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       {/* top */}
-      <div className="flex flex-col md:flex-row justify-between gap-24">
+      <div className="flex flex-col justify-between gap-24 md:flex-row">
         {/* Left */}
-        <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-8 md:w-1/2 lg:w-1/4">
           <Link href="/">
             <div className="text-2xl tracking-wide">LAMA</div>
           </Link>
@@ -27,9 +27,9 @@ const Footer = () => {
           {/* <div></div> */}
         </div>
         {/* center */}
-        <div className="hidden lg:flex justify-between w-1/2">
+        <div className="hidden w-1/2 justify-between lg:flex">
           <div className="flex flex-col justify-between">
-            <h1 className="font-medium text-lg">Company</h1>
+            <h1 className="text-lg font-medium">Company</h1>
             <div className="flex flex-col gap-6">
               <Link href="">About Us</Link>
               <Link href="">Careers</Link>
@@ -39,7 +39,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col justify-between">
-            <h1 className="font-medium text-lg">SHOP</h1>
+            <h1 className="text-lg font-medium">SHOP</h1>
             <div className="flex flex-col gap-6">
               <Link href="">New Arrivals</Link>
               <Link href="">Accessories</Link>
@@ -49,7 +49,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col justify-between">
-            <h1 className="font-medium text-lg">HELP</h1>
+            <h1 className="text-lg font-medium">HELP</h1>
             <div className="flex flex-col gap-6">
               <Link href="">Customer Service</Link>
               <Link href="">My Account</Link>
@@ -61,8 +61,8 @@ const Footer = () => {
           <div className=""></div>
         </div>
         {/* right */}
-        <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
-          <h1 className="font-medium text-lg">SUBSCRIBE</h1>
+        <div className="flex w-full flex-col gap-8 md:w-1/2 lg:w-1/4">
+          <h1 className="text-lg font-medium">SUBSCRIBE</h1>
           <p>
             Be the first to get the latest news about trends, promotions, and
             much more!
@@ -71,7 +71,7 @@ const Footer = () => {
             <input
               type="text"
               placeholder="Email address"
-              className="p-4 w-3/4"
+              className="w-3/4 p-4"
             />
             <button className="w-1/4 bg-lama text-white">JOIN</button>
           </div>
@@ -87,15 +87,15 @@ const Footer = () => {
       </div>
 
       {/* bottom */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
+      <div className="mt-16 flex flex-col items-center justify-between gap-8 md:flex-row">
         <div className="">© 2024 Lama Shop</div>
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="">
-            <span className="text-gray-500 mr-4">Language</span>
+            <span className="mr-4 text-gray-500">Language</span>
             <span className="font-medium">United States | English</span>
           </div>
           <div className="">
-            <span className="text-gray-500 mr-4">Currency</span>
+            <span className="mr-4 text-gray-500">Currency</span>
             <span className="font-medium">$ USD</span>
           </div>
         </div>

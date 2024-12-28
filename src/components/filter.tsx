@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 const Filter = () => {
   const pathName = usePathname();
@@ -8,7 +8,7 @@ const Filter = () => {
   const { replace } = useRouter();
 
   const handleFilterChange = (
-    e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+    e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>,
   ) => {
     const { name, value } = e.target;
     const params = new URLSearchParams(searchParams);
@@ -19,11 +19,11 @@ const Filter = () => {
 
   return (
     <div className="mt-12 flex justify-between">
-      <div className="flex gap-6 flex-wrap">
+      <div className="flex flex-wrap gap-6">
         <select
           name="type"
           id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+          className="rounded-2xl bg-[#EBEDED] px-4 py-2 text-xs font-medium"
           onChange={handleFilterChange}
         >
           <option value="">Type</option>
@@ -34,14 +34,14 @@ const Filter = () => {
           type="text"
           name="min"
           placeholder="min price"
-          className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
+          className="w-24 rounded-2xl pl-2 text-xs ring-1 ring-gray-400"
           onChange={handleFilterChange}
         />
         <input
           type="text"
           name="max"
           placeholder="max price"
-          className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
+          className="w-24 rounded-2xl pl-2 text-xs ring-1 ring-gray-400"
           onChange={handleFilterChange}
         />
         {/* <select
@@ -63,7 +63,7 @@ const Filter = () => {
         <select
           name="category"
           id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+          className="rounded-2xl bg-[#EBEDED] px-4 py-2 text-xs font-medium"
           onChange={handleFilterChange}
         >
           <option value="">Catgory</option>
@@ -73,7 +73,7 @@ const Filter = () => {
         <select
           name=""
           id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+          className="rounded-2xl bg-[#EBEDED] px-4 py-2 text-xs font-medium"
           //   onChange={handlerFilterChange}
         >
           <option value="">All Filters</option>
@@ -83,7 +83,7 @@ const Filter = () => {
         <select
           name="sort"
           id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400"
+          className="rounded-2xl bg-white px-4 py-2 text-xs font-medium ring-1 ring-gray-400"
           onChange={handleFilterChange}
         >
           <option>Sort By</option>

@@ -1,6 +1,6 @@
-"use client";
-import Image from "next/image";
-import { useState } from "react";
+'use client';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const ProductImages = ({ items }: { items: any }) => {
   const [index, setIndex] = useState(0);
@@ -25,20 +25,20 @@ const ProductImages = ({ items }: { items: any }) => {
 
   return (
     <div className="">
-      <div className="h-[500px] relative">
+      <div className="relative h-[500px]">
         <Image
           src={items[index].image?.url}
           alt=""
           sizes="50vw"
           fill
-          className="object-cover rounded-md"
+          className="rounded-md object-cover"
         />
       </div>
-      <div className="flex justify-between gap-4 mt-8 cursor-pointer">
+      <div className="mt-8 flex cursor-pointer justify-between gap-4">
         {items.map((item: any, index: number) => {
           return (
             <div
-              className="w-1/4 h-32 relative gap-4 mt-8"
+              className="relative mt-8 h-32 w-1/4 gap-4"
               onClick={() => setIndex(index)}
               key={item._id}
             >
@@ -47,7 +47,7 @@ const ProductImages = ({ items }: { items: any }) => {
                 alt=""
                 sizes="30vw"
                 fill
-                className="object-cover rounded-md"
+                className="rounded-md object-cover"
               />
             </div>
           );

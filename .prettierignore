@@ -1,0 +1,36 @@
+# Ignoring build output
+.next
+
+# Ignoring environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Ignoring the Node.js modules directory
+node_modules
+
+# Ignoring public assets
+/public
+
+# Ignoring TypeScript build artifacts
+*.d.ts
+
+# Ignoring lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignoring logs
+*.log
+
+# Optional: Ignoring test coverage reports
+coverage
+
+# Optional: Ignoring static export output (if using `next export`)
+out
+
+# Optional: Ignore Vercel/Netlify/Other deployment-specific files
+.vercel
+.netlify
