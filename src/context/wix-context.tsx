@@ -2,8 +2,11 @@
 import { createClient, OAuthStrategy } from "@wix/sdk";
 // import { availabilityCalendar, services } from "@wix/bookings";
 import { products, collections } from "@wix/stores";
+import { currentCart } from "@wix/ecom";
 import Cookies from "js-cookie";
 import { createContext, ReactNode } from "react";
+import { redirects } from "@wix/redirects";
+import { members } from "@wix/members";
 
 const refreshToken = JSON.parse(Cookies.get("refreshToken") || "{}");
 
@@ -12,7 +15,9 @@ const wixClient = createClient({
     products,
     collections,
     // services,
-    // currentCart
+    currentCart,
+    redirects,
+    members,
   },
   auth: OAuthStrategy({
     clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID!,

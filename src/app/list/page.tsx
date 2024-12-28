@@ -32,7 +32,9 @@ export default async function List({ searchParams }: { searchParams: any }) {
       {/* Filter */}
       <Filter />
       {/* product list */}
-      <h1 className="mt-12 text-xl font-semibold">Shoes for you!</h1>
+      <h1 className="mt-12 text-xl font-semibold">
+        {listPage?.collection?.name} for you!
+      </h1>
       <ProductList
         categoryId={
           listPage.collection?._id || "00000000-000000-000000-000000000001"

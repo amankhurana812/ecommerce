@@ -14,6 +14,7 @@ const CategoryList = async () => {
           <Link
             href={`/list?cat=${item.slug}`}
             className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
+            key={item._id}
           >
             <div className="relative bg-slate-100 w-full h-96">
               <Image

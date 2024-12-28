@@ -3,8 +3,9 @@ import { products } from "@wix/stores";
 import Image from "next/image";
 import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
+import Pagination from "./pagination";
 
-const PRODUCT_PER_PAGE = 20;
+const PRODUCT_PER_PAGE = 8;
 const ProductList = async ({
   categoryId,
   limit,
@@ -14,13 +15,39 @@ const ProductList = async ({
   limit?: number;
   searchParams?: any;
 }) => {
+  //   const resolvedSearchParams = await searchParams;
   const wixClient = await wixClientServer();
-  console.log(1444, categoryId);
-  const res = await wixClient.products
+
+  const productQuery = wixClient.products
     .queryProducts()
-    .eq("collectionIds", categoryId || "")
+    .startsWith("name", searchParams?.name || "")
+    .eq("collectionIds", categoryId)
+    .hasSome(
+      "productType",
+      searchParams?.type ? [searchParams.type] : ["physical", "digital"]
+    )
+    .gt("priceData.price", searchParams?.min || 0)
+    .lt("priceData.price", searchParams?.max || 999999)
     .limit(limit || PRODUCT_PER_PAGE)
-    .find();
+    .skip(
+      searchParams?.page ? parseInt(searchParams.page) * PRODUCT_PER_PAGE : 0
+    );
+
+  if (searchParams?.sort) {
+    const [sortType, sortBy] = searchParams.sort.split(" ");
+    if (sortType === "asc") {
+      console.log(400);
+      //   productQuery.ascending
+      productQuery.ascending();
+      console.log(455, productQuery);
+    }
+    if (sortType === "desc") {
+      productQuery.descending(sortBy);
+    }
+  }
+
+  const res = await productQuery.find();
+
   console.log(res);
   return (
     <div className="mt-12 flex gap-8 gap-y-16 items-center justify-between flex-wrap">
@@ -74,6 +101,13 @@ const ProductList = async ({
         </Link>
       ))}
 
+      {searchParams?.cat || searchParams?.name ? (
+        <Pagination
+          currentPage={res.currentPage || 0}
+          hasPrv={res.hasPrev()}
+          hasNext={res.hasNext()}
+        />
+      ) : null}
       {/* <Link
         href="/test"
         className="w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"
