@@ -13,7 +13,7 @@ const CategoryList = async () => {
         {cat.items.map((item) => (
           <Link
             href={`/list?cat=${item.slug}`}
-            className="w-full flex-shrink-0 sm:w-1/2 lg:w-1/4 xl:w-1/6"
+            className="w-full shrink-0 sm:w-1/2 lg:w-1/4 xl:w-1/6"
             key={item._id}
           >
             <div className="relative h-96 w-full bg-slate-100">
