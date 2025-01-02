@@ -27,10 +27,6 @@ const Add = ({
     if (type === 'i' && quantity < stockNumber) {
       setQuantity((prev) => prev + 1);
     }
-    //comment
-    if ('aman' == 'aman') {
-      console.log(32);
-    }
   };
 
   //   const addItem = async () => {

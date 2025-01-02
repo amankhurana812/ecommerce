@@ -16,6 +16,7 @@ export const middleware = async (request: NextRequest) => {
   res.cookies.set('refreshToken', JSON.stringify(tokens.refreshToken), {
     maxAge: 60 * 60 * 24 * 30,
   });
+  //
 
   return res;
 };
