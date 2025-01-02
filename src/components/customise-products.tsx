@@ -84,7 +84,7 @@ const CustomizeProducts = ({
                 //   </div>
 
                 <li
-                  className="relative h-8 w-8 rounded-full ring-1 ring-gray-300"
+                  className="relative size-8 rounded-full ring-1 ring-gray-300"
                   style={{
                     backgroundColor: choice.value,
                     cursor: disabled ? 'not-allowed' : 'pointer',
@@ -93,10 +93,10 @@ const CustomizeProducts = ({
                   key={choice.description}
                 >
                   {selected && (
-                    <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 transform rounded-full ring-2"></div>
+                    <div className="absolute left-1/2 top-1/2 size-10 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2"></div>
                   )}
                   {disabled && (
-                    <div className="absolute left-1/2 top-1/2 h-[2px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 transform bg-red-400"></div>
+                    <div className="absolute left-1/2 top-1/2 h-[2px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-red-400"></div>
                   )}
                 </li>
               ) : (
