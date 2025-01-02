@@ -108,7 +108,7 @@ const NavIcons = () => {
           width={22}
           className="cursor-pointer"
         />
-        <div className="absolute -right-4 -top-4 flex h-6 w-6 items-center justify-center rounded-full bg-lama text-sm text-white">
+        <div className="absolute -right-4 -top-4 flex size-6 items-center justify-center rounded-full bg-lama text-sm text-white">
           {/* 2 */}
           {counter}
         </div>
