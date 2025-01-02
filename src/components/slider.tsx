@@ -84,14 +84,14 @@ const Slider = () => {
       <div className="absolute bottom-8 left-1/2 m-auto flex gap-4">
         {slides.map((slide, index) => (
           <div
-            className={`flex h-3 w-3 cursor-pointer items-center justify-center rounded-full ring-1 ring-gray-600 ${
+            className={`flex size-3 cursor-pointer items-center justify-center rounded-full ring-1 ring-gray-600 ${
               current === index ? 'scale-150' : ''
             }`}
             key={slide.id}
             onClick={() => setCurrent(index)}
           >
             {current === index && (
-              <div className="h-[6px] w-[6px] rounded-full bg-gray-600"></div>
+              <div className="size-[6px] rounded-full bg-gray-600"></div>
             )}
           </div>
         ))}
