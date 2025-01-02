@@ -10,6 +10,7 @@ import { useWixClient } from '@/hooks/useWixClient';
 import { wixClientServer } from '@/lib/wixClientServer';
 
 export default async function Home() {
+  //
   // const wixContext = useContext(WixClientContext);
   // const wixClientContext = useWixClient();
   // //
