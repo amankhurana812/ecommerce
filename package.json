@@ -2,11 +2,13 @@
   "name": "ecommerce",
   "version": "0.1.0",
   "private": true,
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "npm run lint"
-  },
   "husky": {
     "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint"
+    ]
   },
   "scripts": {
     "dev": "next dev",
