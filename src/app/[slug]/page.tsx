@@ -18,7 +18,7 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
   }
   // console.log(19999, product);
   const product = products.items[0];
-  // console.log(211, product.productOptions);
+  console.log(211, product.productOptions);
 
   return (
     <div className="relative flex flex-col gap-16 px-4 md:px-8 lg:flex-row lg:px-16 xl:px-32 2xl:px-64">
